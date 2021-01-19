@@ -10,7 +10,7 @@
   1. Docker
 
 #### Start the app
-  1. `cd MeetingMaster` ( The same directory where docker-compose.yaml is located)
+  1. `cd meetingMaster` ( The same directory where docker-compose.yaml is located)
   2. `docker-compose up --build`
   3. Type localhost in browser's address bar
 
