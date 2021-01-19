@@ -1,0 +1,33 @@
+version: "3"
+services:
+    client:
+      container_name: app
+      build:
+        context: ./frontend
+      ports:
+        - '80:80'
+      environment:
+        - NODE_ENV=production
+
+    server:
+      build:
+        context: ./backend
+      ports:
+          - "8111:8111"
+      environment:
+        - NODE_ENV=production
+      depends_on:
+          - mongo
+      
+    mongo:
+        image: mongo:latest
+        restart: always
+        container_name: mongodb
+        volumes:
+          - mongodb-data:/data/db
+        ports:
+            - 27017:27017
+        command: mongod --noauth
+
+volumes:
+  mongodb-data:
